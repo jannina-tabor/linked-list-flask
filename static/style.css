@@ -1,0 +1,253 @@
+/* General Styles */
+body {
+    background: linear-gradient(to top right, #0A3D62, #16A085, #000000);
+    min-height: 100vh;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+header {
+    text-align: center;
+    background-color: #12121200;
+    padding: 15px 0;
+    border-bottom: 2px solid #11c094;
+}
+
+header {
+    position: relative;
+}
+
+.hover-header {
+    position: relative;
+}
+
+.description {
+    position: absolute;
+    top: 100%; /* Position it directly below the header */
+    left: 0;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+header:hover .description {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+header h1 {
+    color: #16EEBC;
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+/* Form Section */
+.operations form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #1E1E1E;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.operations form label {
+    color: #16EEBC;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.operations form input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #16EEBC;
+    border-radius: 5px;
+    background-color: #121212;
+    color: white;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.operations form input[type="text"]:focus {
+    border-color: #0A3D62;
+    outline: none;
+    box-shadow: 0 0 8px #16EEBC;
+}
+
+/* Buttons */
+.operations .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.operations .buttons button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #16EEBC;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 45%; /* Dynamic width for responsiveness */
+}
+
+.operations .buttons button:hover {
+    background-color: #0A3D62;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Flash Messages */
+ul {
+    list-style-type: none;
+    padding: 0;
+    color: #16EEBC;
+    margin-top: 20px;
+}
+
+ul li {
+    padding: 10px;
+    background-color: #12121275;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+    animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 2;
+    }
+}
+
+/* Current List */
+h2 {
+    margin-top: 30px;
+}
+
+p {
+    background-color: #1E1E1E;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .operations .buttons button {
+        width: 100%;
+    }
+}
+
+/* Ensure the video covers the entire page and remains fixed */
+#background-video {
+    position: fixed; /* Keeps the video fixed at the background */
+    top: 0;
+    left: 0;
+    width: 100vw;  /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    object-fit: cover; /* Ensures the video covers the area without distortion */
+    z-index: -1; /* Keep video behind content */
+}
+
+/* Ensures the body has a scrolling area */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;  /* Prevent horizontal scrolling */
+    overflow-y: scroll;  /* Always allow vertical scrolling */
+    height: 100%; /* Ensure body takes the full height */
+}
+
+/* Main content above the video */
+header, main {
+    position: relative;
+    z-index: 1; /* Content should appear above the video */
+    padding: 20px; /* Space the content out */
+    color: white; /* Text color for visibility */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Slight background color for text readability */
+}
+
+/* Style for linked list section */
+#linked-list-display {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Makes background semi-transparent */
+}
+
+/* Add padding for spacing */
+section {
+    margin-bottom: 30px;  /* Add space between sections */
+}
+
+#linked-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;  /* Adjust the space between nodes */
+    padding: 20px;
+}
+
+/* Node Container */
+.node {
+    background-color: #0A3D62;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    width: 100px; 
+    height: 20px; 
+    text-align: center;
+    position: relative;  
+    margin: 5px;
+}
+
+/* Arrow (Pointer) Style */
+.node-pointer {
+    font-size: 20px;
+    color: #16EEBC;
+    position: absolute;
+    top: 50%;
+    right: -10px;  /* Places the pointer to the right */
+    transform: translateY(-50%);  /* Vertically center the pointer */
+    visibility: visible;
+}
+
+/* Hide arrow on last node */
+.node:last-child .node-pointer {
+    visibility: hidden; 
+}
+
+/* Node Data Styling */
+.node-data {
+    font-size: 16px;
+    font-weight: bold;
+    color: #16EEBC;
+}

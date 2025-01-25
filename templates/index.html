@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked List Operations</title>
+   
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1.6">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+     <!-- Video as the background -->
+     <video id="background-video" autoplay muted loop>
+        <source src="{{ url_for('static', filename='videos/Stacked.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <header>
+        <h1 class="hover-header">Linked List Operations</h1>
+        <p class="description">
+            A linked list is a dynamic data structure that consists of nodes, where each node contains data and a reference (or pointer) to the next node in the sequence. It allows for efficient insertions and deletions.
+        </p>
+    </header>
+    <main>
+        <section class="operations">
+            <form action="/update" method="POST" id="linked-list-form">
+                <div class="buttons">
+                    <button type="submit" name="operation" value="insert_beginning" aria-label="Insert at the beginning of the list">Insert at Beginning</button>
+                    <button type="submit" name="operation" value="insert_end" aria-label="Insert at the end of the list">Insert at End</button>
+                    <button type="submit" name="operation" value="remove_beginning" aria-label="Remove from beginning of the list">Remove from Beginning</button>
+                    <button type="submit" name="operation" value="remove_end" aria-label= "Remove from end of the list">Remove from End</button>
+                    <button type="submit" name="operation" value="remove_at" aria-label="Remove a specific element from the list">Remove Specific</button>
+                    <button type="submit" name="operation" value="search" aria-label="Search an element from the list">Search</button>
+                </div>
+                <label for="data">Data:</label>
+                <input type="text" id="data" name="data" placeholder="Enter value here">
+            </form>
+        </section>
+
+        <section id="linked-list-display">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <h2>Current List:</h2>
+        <div id="linked-list">
+            {% if linked_list %}
+                <ul>
+                    {% for item in linked_list %}
+                        <li class="node">
+                            <div class="node-content">
+                                <span class="node-data">{{ item }}</span>
+                                <span class="node-pointer">→</span> <!-- Arrow to next node -->
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No elements in the list yet.</p>
+            {% endif %}
+        </div>
+        </section>
+    </main>
+</body>
+</html>
+
+
+
+
+
+
+
+
