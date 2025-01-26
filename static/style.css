@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    background: linear-gradient(to top right, #0A3D62, #16A085, #000000);
+    background: #000000;
     min-height: 100vh;
     color: white;
     margin: 0;
@@ -163,26 +163,6 @@ p {
     .operations .buttons button {
         width: 100%;
     }
-}
-
-/* Ensure the video covers the entire page and remains fixed */
-#background-video {
-    position: fixed; /* Keeps the video fixed at the background */
-    top: 0;
-    left: 0;
-    width: 100vw;  /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
-    object-fit: cover; /* Ensures the video covers the area without distortion */
-    z-index: -1; /* Keep video behind content */
-}
-
-/* Ensures the body has a scrolling area */
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;  /* Prevent horizontal scrolling */
-    overflow-y: scroll;  /* Always allow vertical scrolling */
-    height: 100%; /* Ensure body takes the full height */
 }
 
 /* Main content above the video */
