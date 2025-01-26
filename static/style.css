@@ -10,38 +10,16 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
 /* Header */
 header {
     text-align: center;
     background-color: #12121200;
     padding: 15px 0;
     border-bottom: 2px solid #11c094;
-}
-
-header {
     position: relative;
+    overflow: visible;
+    z-index: 1;
 }
-
-.hover-header {
-    position: relative;
-}
-
-.description {
-    position: absolute;
-    top: 100%; /* Position it directly below the header */
-    left: 0;
-    width: 100%;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-header:hover .description {
-    visibility: visible;
-    opacity: 1;
-}
-
 
 header h1 {
     color: #16EEBC;
@@ -70,14 +48,14 @@ main {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    position: relative; 
+    z-index: 1;
 }
-
 .operations form label {
     color: #16EEBC;
     font-weight: bold;
     margin: 10px 0 5px;
 }
-
 .operations form input[type="text"] {
     width: 80%;
     padding: 10px;
@@ -88,21 +66,20 @@ main {
     color: white;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
 }
-
 .operations form input[type="text"]:focus {
     border-color: #0A3D62;
     outline: none;
     box-shadow: 0 0 8px #16EEBC;
 }
-
 /* Buttons */
 .operations .buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    position: relative;
+    z-index: 1;
 }
-
 .operations .buttons button {
     padding: 10px 15px;
     margin: 5px;
@@ -114,13 +91,11 @@ main {
     transition: all 0.3s ease;
     width: 45%; /* Dynamic width for responsiveness */
 }
-
 .operations .buttons button:hover {
     background-color: #0A3D62;
     transform: scale(1.05);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
 /* Flash Messages */
 ul {
     list-style-type: none;
@@ -128,7 +103,6 @@ ul {
     color: #16EEBC;
     margin-top: 20px;
 }
-
 ul li {
     padding: 10px;
     background-color: #12121275;
@@ -137,7 +111,6 @@ ul li {
     text-align: center;
     animation: fade-in 0.5s ease-in-out;
 }
-
 @keyframes fade-in {
     0% {
         opacity: 0;
@@ -146,51 +119,67 @@ ul li {
         opacity: 2;
     }
 }
-
 /* Current List */
 h2 {
     margin-top: 30px;
 }
-
 p {
     background-color: #1E1E1E;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
-
 @media (max-width: 768px) {
     .operations .buttons button {
         width: 100%;
     }
 }
 
+/* Ensure the video covers the entire page and remains fixed */
+#background-video {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;  
+    height: 100vh; 
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+/* Ensures the body has a scrolling area */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;  
+    overflow-y: scroll;  
+    height: 100%;
+}
+
 /* Main content above the video */
 header, main {
     position: relative;
-    z-index: 1; /* Content should appear above the video */
-    padding: 20px; /* Space the content out */
-    color: white; /* Text color for visibility */
-    background-color: rgba(0, 0, 0, 0.5); /* Optional: Slight background color for text readability */
+    z-index: 1; 
+    padding: 20px; 
+    color: white; 
+    background-color: rgba(0, 0, 0, 0.5); 
 }
 
 /* Style for linked list section */
 #linked-list-display {
     margin-top: 20px;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5); /* Optional: Makes background semi-transparent */
+    background-color: rgba(0, 0, 0, 0.5); 
 }
 
-/* Add padding for spacing */
 section {
-    margin-bottom: 30px;  /* Add space between sections */
+    margin-bottom: 30px;  
 }
 
 #linked-list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;  /* Adjust the space between nodes */
+    gap: 15px;  
     padding: 20px;
 }
 
@@ -215,8 +204,8 @@ section {
     color: #16EEBC;
     position: absolute;
     top: 50%;
-    right: -10px;  /* Places the pointer to the right */
-    transform: translateY(-50%);  /* Vertically center the pointer */
+    right: -10px;  
+    transform: translateY(-50%);  
     visibility: visible;
 }
 
